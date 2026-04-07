@@ -5,7 +5,7 @@
 */
 include { FASTQC                   } from '../modules/nf-core/fastqc/main'
 include { MULTIQC                  } from '../modules/nf-core/multiqc/main'
-include { SEQKIT_PAIR              } from '../modules/nf-core/seqkit/pair/main'   
+include { SEQKIT_PAIR              } from '../modules/nf-core/seqkit/pair/main'
 include { CAT_FASTQ                } from '../modules/nf-core/cat/fastq/main'
 include { TAXPASTA_STANDARDISE     } from '../modules/nf-core/taxpasta/standardise/main'
 include { paramsSummaryMap         } from 'plugin/nf-schema'
