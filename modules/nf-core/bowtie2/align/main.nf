@@ -60,7 +60,6 @@ process BOWTIE2_ALIGN {
         -x \$INDEX \\
         $reads_args \\
         --threads $task.cpus \\
-        --very-sensitive \\
         $unaligned \\
         $args \\
         2>| >(tee ${prefix}.bowtie2.log >&2) \\

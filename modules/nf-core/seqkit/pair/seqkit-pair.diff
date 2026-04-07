@@ -1,0 +1,20 @@
+Changes in component 'nf-core/seqkit/pair'
+'modules/nf-core/seqkit/pair/environment.yml' is unchanged
+'modules/nf-core/seqkit/pair/meta.yml' is unchanged
+Changes in 'seqkit/pair/main.nf':
+--- modules/nf-core/seqkit/pair/main.nf
++++ modules/nf-core/seqkit/pair/main.nf
+@@ -29,7 +29,7 @@
+         --threads $task.cpus
+ 
+     # gzip fastq
+-    find . -maxdepth 1 -name "*.fastq" -exec gzip {} \;
++    find . -maxdepth 1 -name "*.fastq" -exec gzip {} \\;
+     """
+ 
+     stub:
+
+'modules/nf-core/seqkit/pair/tests/main.nf.test.snap' is unchanged
+'modules/nf-core/seqkit/pair/tests/nextflow.config' is unchanged
+'modules/nf-core/seqkit/pair/tests/main.nf.test' is unchanged
+************************************************************

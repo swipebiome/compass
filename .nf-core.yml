@@ -17,6 +17,7 @@ lint:
     - assets/email_template.txt
     - docs/README.md
     - .prettierignore
+    - assets/email_template.html
   nextflow_config:
     - manifest.name
     - manifest.homePage
