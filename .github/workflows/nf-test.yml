@@ -28,7 +28,7 @@ jobs:
   nf-test-changes:
     name: nf-test-changes
     runs-on: # use GitHub runners
-      - "NextflowRunner"
+      - "NextflowWorkflow"
     outputs:
       shard: ${{ steps.set-shards.outputs.shard }}
       total_shards: ${{ steps.set-shards.outputs.total_shards }}
@@ -61,12 +61,12 @@ jobs:
     needs: [nf-test-changes]
     if: ${{ needs.nf-test-changes.outputs.total_shards != '0' }}
     runs-on: # use GitHub runners
-      - "NextflowRunner"
+      - "NextflowWorkflow"
     strategy:
       fail-fast: false
       matrix:
         shard: ${{ fromJson(needs.nf-test-changes.outputs.shard) }}
-        profile: [conda, docker, singularity]
+        profile: [docker]
         isMain:
           - ${{ github.base_ref == 'master' || github.base_ref == 'main' }}
         # Exclude conda and singularity on dev
