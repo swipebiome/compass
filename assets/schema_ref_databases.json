@@ -27,7 +27,8 @@
                 "type": "string",
                 "pattern": "^[^\"']*$",
                 "errorMessage": "Invalid database ref_db_params entry. No quotes allowed.",
-                "meta": ["ref_db_params"]
+                "meta": ["ref_db_params"],
+                "default": ""
             },
             "ref_db_path": {
                 "type": "string",

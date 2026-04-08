@@ -23,17 +23,6 @@ workflow PROFILING {
     if (params.do_kraken2) {
         ch_kraken2_ref = ch_ref_databases
             .filter { meta, path -> meta.tool == 'kraken2' }
-            .map { meta, path ->
-                def cur_db_params = meta['ref_db_params']
-                def meta_new = [:]
-                if (cur_db_params.size == 0) {
-                    meta_new = meta + [ref_db_params: ""]
-                } else {
-                    meta_new = meta + [ref_db_params: cur_db_params[0]]
-                }
-
-                [meta_new, path]
-            }
 
         ch_kraken2_input = reads
             .combine(ch_kraken2_ref)
@@ -58,17 +47,6 @@ workflow PROFILING {
     if (params.do_kraken2 && params.do_bracken ) {
         ch_bracken_ref = ch_ref_databases
             .filter { meta, path -> meta.tool == 'bracken'}
-            .map { meta, path ->
-                def cur_db_params = meta['ref_db_params']
-                def meta_new = [:]
-                if (cur_db_params.size == 0) {
-                    meta_new = meta + [ref_db_params: ""]
-                } else {
-                    meta_new = meta + [ref_db_params: cur_db_params[0]]
-                }
-
-                [meta_new, path]
-            }
 
         ch_bracken_input = KRAKEN2_KRAKEN2.out.report
             .combine(ch_bracken_ref)

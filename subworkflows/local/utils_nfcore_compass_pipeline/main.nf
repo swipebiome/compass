@@ -92,6 +92,20 @@ workflow PIPELINE_INITIALISATION {
         .fromList(samplesheetToList(ref_databases, "${projectDir}/assets/schema_ref_databases.json"))
         .set { ch_ref_databases }
 
+    //
+    // Validate pipeline-specific parameters
+    //
+    if (params.do_preprocessing && params.adapter_list) {
+        def adapter_list_f = file(params.adapter_list, checkIfExists: true)
+        if (!adapter_list_f.extension.matches(".*(fa|fasta|fna|fas)")) {
+            error("ERROR: Adapter list must be a FASTA file with an extension of .fa, .fas, .fna, or .fasta. Please check --adapter_list parameter ${params.adapter_list}")
+        }
+    }
+
+    if (!params.do_kraken2 && params.do_bracken) {
+        error("ERROR: You may not run Bracken without also running Kraken2")
+    }
+
     emit:
     samplesheet   = ch_samplesheet
     ref_databases = ch_ref_databases

@@ -33,6 +33,7 @@ lint:
     - LICENSE
     - conf/igenomes.config
     - conf/igenomes_ignored.config
+    - conf/test_full.config
     - CHANGELOG.md
     - CODE_OF_CONDUCT.md
     - assets/nf-core-compass_logo_light.png

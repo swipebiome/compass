@@ -76,6 +76,20 @@
                     "description": "Minimum length of reads to preserve and process",
                     "help_text": "Changing the minimum read length will impact both profiling speed and accuracy.",
                     "default": 15
+                },
+                "preprocessing_fastp_qualified_quality_phred": {
+                    "type": "integer",
+                    "fa_icon": "fas fa-ruler-horizontal",
+                    "description": "Minimum phred quality score to consider a read qualified",
+                    "help_text": "Increasing this value will enact stricter quality filtering.",
+                    "default": 15
+                },
+                "proprocessing_fastp_cut_tail": {
+                    "type": "boolean",
+                    "fa_icon": "fas fa-toggle-off",
+                    "description": "Determines whether to use fastp's --cut_tail parameter",
+                    "help_text": "--cut_tail performs sliding window trimming from the 3' (tail) end of a read, removing low-quality bases based on mean quality.",
+                    "default": false
                 }
             }
         },
@@ -89,6 +103,13 @@
                     "fa_icon": "fas fa-toggle-on",
                     "description": "Determines whether to do host removal steps",
                     "help_text": "It's generally recommended to perform host removal if you're interested in microbial composition",
+                    "default": true
+                },
+                "host_removal_bowtie2_very_sensitive": {
+                    "type": "boolean",
+                    "fa_icon": "fas fa-toggle-on",
+                    "description": "Determines whether to use the --very-sensitive parameter for Bowtie2",
+                    "help_text": "Setting this to true will help maximize host removal.",
                     "default": true
                 }
             }
@@ -285,7 +306,7 @@
                     "type": "string",
                     "fa_icon": "far fa-check-circle",
                     "description": "Base URL or local path to location of pipeline test dataset files",
-                    "default": "hhttps://raw.githubusercontent.com/ucsd-cmi/compass-resources/refs/heads/main/test_data/",
+                    "default": "https://raw.githubusercontent.com/ucsd-cmi/compass-resources/refs/heads/main/test_data/",
                     "hidden": true
                 },
                 "trace_report_suffix": {
