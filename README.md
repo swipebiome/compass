@@ -80,5 +80,4 @@ COMPASS was built on the nf-core framework, and we thank the entire nf-core comm
 
 ## Citations
 
-A full list of citations, included tools used within the pipeline, data used for automated testing, and reference data used within the hosted copy of the pipeline.
-
+A full list of citations, included tools used within the pipeline, data used for automated testing, and reference data used within the hosted copy of the pipeline, is available in the [citations document](CITATIONS.md).
