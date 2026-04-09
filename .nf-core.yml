@@ -14,6 +14,10 @@ lint:
     - .github/ISSUE_TEMPLATE/bug_report.yml
     - .github/CONTRIBUTING.md
     - .github/PULL_REQUEST_TEMPLATE.md
+    - .github/workflows/branch.yml
+    - .github/workflows/nf-test.yml
+    - .github/workflows/linting.yml
+    - .github/workflows/download_pipeline.yml
     - assets/email_template.txt
     - docs/README.md
     - .prettierignore
@@ -47,6 +51,7 @@ lint:
     - nextflow_badge
     - nfcore_template_badge
   included_configs: false
+  actions_nf_test: false
 
 template:
   org: ucsd-cmi
